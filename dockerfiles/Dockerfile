@@ -95,7 +95,7 @@ RUN [ -n "${WAMR_BUILD_TARGET:-}" ] && EXTRA_CMAKE_FLAGS="$EXTRA_CMAKE_FLAGS -DW
 ARG CFLAGS="-v"
 ENV CFLAGS=${CFLAGS}
 
-RUN make -j2
+RUN make -j1
 RUN install bin/fluent-bit /fluent-bit/bin/
 
 # Configuration files

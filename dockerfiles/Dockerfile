@@ -77,7 +77,7 @@ ENV EXTRA_CMAKE_FLAGS=${EXTRA_CMAKE_FLAGS}
 RUN [ -n "${WAMR_BUILD_TARGET:-}" ] && EXTRA_CMAKE_FLAGS="$EXTRA_CMAKE_FLAGS -DWAMR_BUILD_TARGET=$WAMR_BUILD_TARGET"; \
     cmake -DFLB_SIMD=On \
     -DFLB_RELEASE=On \
-    -DFLB_JEMALLOC=On \
+    -DFLB_JEMALLOC=Off \
     -DFLB_TLS=On \
     -DFLB_SHARED_LIB=Off \
     -DFLB_EXAMPLES=Off \
@@ -95,7 +95,7 @@ RUN [ -n "${WAMR_BUILD_TARGET:-}" ] && EXTRA_CMAKE_FLAGS="$EXTRA_CMAKE_FLAGS -DW
 ARG CFLAGS="-v"
 ENV CFLAGS=${CFLAGS}
 
-RUN make -j "$(getconf _NPROCESSORS_ONLN)"
+RUN make -j2
 RUN install bin/fluent-bit /fluent-bit/bin/
 
 # Configuration files

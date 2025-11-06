@@ -6,7 +6,7 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: ${{ github.repository }}/fluent-bit
+  IMAGE_NAME: shadowofmoo/fluent-bit
 
 jobs:
   build:
